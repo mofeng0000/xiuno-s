@@ -1,0 +1,5 @@
+<?php exit;?>	2022-06-15 18:37:52	127.0.0.1	/install/	0	Error[8192]: Array and string offset access syntax with curly braces is deprecated, File: C:\phpEnv\www\localhost\xiunophp\xn_html_safe.func.php, Line: 785
+<?php exit;?>	2022-06-15 18:37:52	127.0.0.1	/install/	0	Error[8192]: Array and string offset access syntax with curly braces is deprecated, File: C:\phpEnv\www\localhost\xiunophp\xn_html_safe.func.php, Line: 938
+<?php exit;?>	2022-06-15 18:37:52	127.0.0.1	/install/	0	Error[8192]: Array and string offset access syntax with curly braces is deprecated, File: C:\phpEnv\www\localhost\xiunophp\xn_html_safe.func.php, Line: 951
+<?php exit;?>	2022-06-15 18:43:38	127.0.0.1	/install/	0	Error[8192]: Array and string offset access syntax with curly braces is deprecated, File: C:\phpEnv\www\localhost\xiunophp\xn_html_safe.func.php, Line: 938
+<?php exit;?>	2022-06-15 18:43:38	127.0.0.1	/install/	0	Error[8192]: Array and string offset access syntax with curly braces is deprecated, File: C:\phpEnv\www\localhost\xiunophp\xn_html_safe.func.php, Line: 951
