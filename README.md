@@ -1,7 +1,19 @@
-**开发中……**
-
+<<<<<<< HEAD
 ------
 ### 【Xiuno BBS 4.0 是什么？】
+=======
+
+bbs.xiuno.com
+
+国内什么时候有真正的开源环境了再见!
+
+老黄
+2020/7/6
+
+xiuno-s开发中……
+
+### 【Xiuno BBS  是什么？】
+>>>>>>> cce200d7443e0cc1b3a8f30328442ef2d2867f4e
 Xiuno BBS 4.0 是一款轻论坛产品，前端基于 BootStrap 4.0、JQuery 3，后端基于 PHP/7 MySQL XCache/Yac/Redis/Memcached...
 
 自适应手机、平板、PC，有着非常方便的插件机制，不仅仅是一个轻论坛，还是一个良好的二次开发平台。
