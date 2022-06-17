@@ -87,12 +87,9 @@ if(empty($action)) {
 			 empty($_user) AND message('mobile', lang('username_not_exists'));
 		}
 		
-		
 		$password = param('password');
 		!is_password($password, $err) AND message('password', $err);
-		$check = (md5($password.$_user['salt']) == $_user['password']);
-		// hook user_login_post_password_check_after.php
-		!$check AND message('password', lang('password_incorrect'));
+		md5($password.$_user['salt']) != $_user['password'] AND message('password', lang('password_incorrect'));
 
 		// 更新登录时间和次数
 		// update login times
@@ -454,27 +451,25 @@ if(empty($action)) {
 // hook user_end.php
 
 // 获取用户来路
-if(!function_exists('user_http_referer')) {
-	function user_http_referer() {
-		// hook user_http_referer_start.php
-		$referer = param('referer'); // 优先从参数获取 | GET is priority
-		empty($referer) AND $referer = array_value($_SERVER, 'HTTP_REFERER', '');
-		
-		$referer = str_replace(array('\"', '"', '<', '>', ' ', '*', "\t", "\r", "\n"), '', $referer); // 干掉特殊字符 strip special chars
-		
-		if(
-			!preg_match('#^(http|https)://[\w\-=/\.]+/[\w\-=.%\#?]*$#is', $referer) 
-			|| strpos($referer, 'user-login.htm') !== FALSE 
-			|| strpos($referer, 'user-logout.htm') !== FALSE 
-			|| strpos($referer, 'user-create.htm') !== FALSE 
-			|| strpos($referer, 'user-setpw.htm') !== FALSE 
-			|| strpos($referer, 'user-resetpw_complete.htm') !== FALSE
-		) {
-			$referer = './';
-		}
-		// hook user_http_referer_end.php
-		return $referer;
+function user_http_referer() {
+	// hook user_http_referer_start.php
+	$referer = param('referer'); // 优先从参数获取 | GET is priority
+	empty($referer) AND $referer = array_value($_SERVER, 'HTTP_REFERER', '');
+	
+	$referer = str_replace(array('\"', '"', '<', '>', ' ', '*', "\t", "\r", "\n"), '', $referer); // 干掉特殊字符 strip special chars
+	
+	if(
+		!preg_match('#^(http|https)://[\w\-=/\.]+/[\w\-=.%\#?]*$#is', $referer) 
+		|| strpos($referer, 'user-login.htm') !== FALSE 
+		|| strpos($referer, 'user-logout.htm') !== FALSE 
+		|| strpos($referer, 'user-create.htm') !== FALSE 
+		|| strpos($referer, 'user-setpw.htm') !== FALSE 
+		|| strpos($referer, 'user-resetpw_complete.htm') !== FALSE
+	) {
+		$referer = './';
 	}
+	// hook user_http_referer_end.php
+	return $referer;
 }
 
 function user_auth_check($token) {
